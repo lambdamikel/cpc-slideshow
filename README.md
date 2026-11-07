@@ -23,7 +23,7 @@ LambdaBoard.*
 - [Converting pictures without making a disc](#converting-pictures-without-making-a-disc)
 - [Modes and picture quality](#modes-and-picture-quality)
 - [How it works](#how-it-works)
-- [Testing in MAME](#testing-in-mame)
+- [Running a disc in MAME](#running-a-disc-in-mame)
 - [Repository layout](#repository-layout)
 - [Credits and licence](#credits-and-licence)
 
@@ -84,7 +84,12 @@ exactly as the CPC will show it. If a crop is wrong or a picture looks dull,
 see [the playlist](#choosing-order-times-and-modes-the-playlist) for what can
 be changed per picture.
 
-**4. Put the disc on the CPC** — `build/slideshow.hfe` onto the Gotek's USB
+**4. Try it in MAME** — it opens a CPC 6128 with the disc in the drive and
+starts the slideshow by itself ([more](#running-a-disc-in-mame)):
+
+    tools/run.sh build/slideshow.dsk       # or build/slideshow-1.dsk, -2.dsk, ...
+
+**5. Put the disc on the CPC** — `build/slideshow.hfe` onto the Gotek's USB
 stick, or `build/slideshow.dsk` into the emulator or onto a real disc — and
 `RUN"SLIDES`.
 
@@ -265,7 +270,7 @@ load instead of 4.
 
 ---
 
-## Testing in MAME
+## Running a disc in MAME
 
     tools/run.sh build/slideshow-3.dsk   # a 6128 with that disc, slideshow started
     tools/run.sh                         # build/slideshow.dsk (or -1.dsk), else the demo disc
