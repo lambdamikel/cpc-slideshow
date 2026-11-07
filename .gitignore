@@ -1,0 +1,4 @@
+# What tools/build.py makes; the published disc is copied to disk/.
+build/
+__pycache__/
+*.pyc

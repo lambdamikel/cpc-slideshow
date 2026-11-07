@@ -1,0 +1,28 @@
+# The playlist: one picture per line, shown in this order, then round again.
+#
+#   picture                 seconds  mode  options
+#
+# seconds  how long it stays up (default 10). Loading the next picture takes
+#          about 4 s of that, so less than ~5 just means "as fast as the disc".
+# mode     auto (default): CPC-sized or 2/4-colour pictures get mode 2/1, others 0
+#          0 = 160x200, 16 colours (photos)
+#          1 = 320x200, 4 colours   2 = 640x200, 2 colours (text, line art)
+# options  fit            letterbox instead of cropping to fill the screen
+#          bayer / none   ordered dithering / no dithering (default fs)
+#          xalign=0..1    where to crop, 0 = left edge, 1 = right edge
+#          yalign=0..1    where to crop, 0 = top, 1 = bottom
+#          saturation=1.15 contrast=1.0 autocontrast=0.5 sharpen=0.6 strength=0.85
+#          name=XXXXXXXX  the name on the disc (default: from the file name)
+#
+# A DATA disc holds 10 pictures. tools/build.py says if it is full.
+
+pictures/mycpc.jpg      10  0
+pictures/vecthead.png   12  2
+pictures/emic4cpc.jpg    8  0   yalign=0.7
+pictures/ls15.jpg        8  0
+pictures/ls195.jpg       8  0
+pictures/lsfs.jpg        8  0
+pictures/ls3.jpg         8  0
+pictures/lsai.png       10  0
+pictures/speaksid.jpg    8  0
+pictures/lambdaboard.jpg 8  0   name=LBOARD
