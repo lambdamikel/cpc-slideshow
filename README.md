@@ -267,9 +267,23 @@ load instead of 4.
 
 ## Testing in MAME
 
-    tools/run.sh                         # watch build/slideshow.dsk on a 6128
-    tools/run.sh -m 464 disc.dsk         # on a 464 with a DDI-1
+    tools/run.sh build/slideshow-3.dsk   # a 6128 with that disc, slideshow started
+    tools/run.sh                         # build/slideshow.dsk (or -1.dsk), else the demo disc
+    tools/run.sh -m 464 disc.dsk         # a 464 with a DDI-1
+    tools/run.sh -n disc.dsk             # just boot, don't type RUN"SLIDES
     SHOT_EVERY=2 RUN_SECONDS=120 tools/run.sh -shots /tmp/shots
+
+MAME opens in a window, boots, and types `RUN"SLIDES` itself after three
+seconds. MAME's own keys are kept active, so there is no Scroll Lock dance:
+
+| key | |
+|---|---|
+| **Tab** | MAME's menu — *File Manager → floppydisk1* puts in another disc |
+| **Insert** | the CPC's DEL (backspace). Backspace is the CPC's CLR, which deletes *forwards* |
+| **`** | the CPC's ESC |
+| **Esc** | quit MAME (it asks first) |
+
+MAME maps the CPC keyboard by position, not by legend, hence Insert and `.
 
 The headless form runs [`emu/show.lua`](emu/show.lua): it types
 `RUN"SLIDES`, logs every flip to the frame with how long the picture was up,
@@ -293,7 +307,7 @@ tools/build.py   playlist or directory -> disc images
 tools/pic2cpc.py picture or directory -> .SCR files
 tools/mkcpcdisk.py  AMSDOS DATA disc, as .dsk and .hfe
 tools/amsdos.py  AMSDOS header for a binary
-tools/run.sh     run a disc in MAME, watched or headless
+tools/run.sh     run a disc in MAME: windowed with RUN"SLIDES typed, or headless
 emu/show.lua     MAME script: drive the slideshow, log it, snapshot it
 docs/            screenshots
 build/           what tools/build.py makes (not in git)
