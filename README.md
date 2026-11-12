@@ -297,7 +297,8 @@ and saves snapshots of the emulated monitor — real palette, real mode.
 top of this page was made that way.
 
 Tested in MAME 0.264 on the 6128 and on the 464 with a DDI-1, a full loop
-each, plus a playlist naming a missing file. **Not yet tried on a real CPC.**
+each, plus a playlist naming a missing file — and **on a real CPC 464, where
+it works very well** (November 2026).
 
 ---
 
