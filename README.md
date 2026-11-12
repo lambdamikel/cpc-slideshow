@@ -42,9 +42,28 @@ Then, on the CPC:
 
     RUN"SLIDES
 
-A 464 needs a DDI-1 disc interface (or a Gotek on one). The screen goes black
-for about five seconds while the viewer and the first picture load; after
-that it runs forever.
+A 464 needs a DDI-1 disc interface (or a Gotek on one), or a
+[LambdaSpeak AI](#on-lambdaspeak-ai) card, which emulates the drive. The
+screen goes black for about five seconds while the viewer and the first
+picture load; after that it runs forever.
+
+### On LambdaSpeak AI
+
+[LambdaSpeak AI](https://github.com/lambdamikel/lambdaspeak4) emulates the
+disc controller and drive, so a 464 with nothing else fitted runs the
+slideshow from the card's flash
+([its disc emulation docs](https://github.com/lambdamikel/lambdaspeak4/blob/main/docs/disc-emulation.md)).
+Each slideshow disc takes one of its 54 flash disc slots:
+
+    tools/dskloader.py slideshow.dsk --slot 3     # from the lambdaspeak4 repo
+
+then on the CPC:
+
+    |LOADFLASHDISC,3
+    RUN"SLIDES
+
+A split set (`slideshow-1.dsk`, `-2.dsk`, ...) goes into consecutive slots,
+up to 54 discs, 540 pictures, all on the card at once.
 
 - **Any key** skips to the next picture.
 - **ESC twice** stops it, as with any BASIC program.
@@ -298,7 +317,8 @@ top of this page was made that way.
 
 Tested in MAME 0.264 on the 6128 and on the 464 with a DDI-1, a full loop
 each, plus a playlist naming a missing file — and **on a real CPC 464, where
-it works very well** (November 2026).
+it works very well** (November 2026), from LambdaSpeak AI's disc emulation:
+the pictures stayed up for their playlist times there too.
 
 ---
 
